@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!--Conexión con Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <title>Ciudadanos de 4 patas</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="d-grid justify-content-center align-items-center" style="height: 100vh;">
+                <div class="p-4 bg-light border border-3">
+                    <div class="d-grid gap-1">
+                        <h4>Login</h4>
+                    </div>
+                    <form action="validation-servlet" method="get">
+                        <div class="d-grid gap-3">
+                            <div>
+                                <label>Correo:</label>
+                                <input type="email" name="email" id="email-input">
+                            </div>
+                            <div>
+                                <label>Contraseña:</label>
+                                <input type="password" name="password" id="pass-input">
+                            </div>
+                            <div>
+                                <input type="submit" value="Log in"></input>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
