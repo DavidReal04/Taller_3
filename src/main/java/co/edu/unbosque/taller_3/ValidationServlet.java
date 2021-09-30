@@ -12,7 +12,7 @@ public class ValidationServlet extends HttpServlet {
         message = "Ingreso exitoso";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
         // Hello
