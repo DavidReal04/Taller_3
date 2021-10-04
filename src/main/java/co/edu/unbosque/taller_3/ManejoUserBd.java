@@ -47,7 +47,7 @@ public class ManejoUserBd {
         try {
             FileWriter fw = new FileWriter(f);
             PrintWriter pw = new PrintWriter(fw);
-            String datosString = "";
+            String datosString="./UserDB";
             for(int i = 0;i<usuarios.size();i++) {
                 String nombre = usuarios.get(i).getNombre();
                 String correo = usuarios.get(i).getCorreo();
