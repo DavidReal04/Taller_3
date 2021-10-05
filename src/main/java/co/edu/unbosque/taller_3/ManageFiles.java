@@ -13,13 +13,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class ManejoUserBd {
+public class ManageFiles {
     private ArrayList<Usuarios> usuarios;
     private CSVReader csvReader;
     private FileReader csvFile;
     private String archivodata;
 
-    public ManejoUserBd() {
+    public ManageFiles() {
         usuarios = new ArrayList<>();
         archivodata = "";
     }
@@ -29,15 +29,13 @@ public class ManejoUserBd {
             csvFile = new FileReader(archivodata);
             CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
             csvReader = new CSVReaderBuilder(csvFile).withCSVParser(conPuntoYComa).build();
-            String[] fila = null;
+            String[] fila;
             csvReader.readNext();
             while ((fila = csvReader.readNext()) != null) {
                 usuarios.add(new Usuarios(fila[0],fila[1],fila[2]));
             }
-        }catch (IOException e) {
+        }catch (IOException | CsvValidationException e) {
             return false;
-        } catch (CsvValidationException e) {
-
         }
         return true;
     }
@@ -47,12 +45,12 @@ public class ManejoUserBd {
         try {
             FileWriter fw = new FileWriter(f);
             PrintWriter pw = new PrintWriter(fw);
-            String datosString="./UserDB";
-            for(int i = 0;i<usuarios.size();i++) {
-                String nombre = usuarios.get(i).getNombre();
-                String correo = usuarios.get(i).getCorreo();
-                String funcion = usuarios.get(i).getFuncion();
-                datosString = nombre+";"+correo+";"+funcion;
+            String datosString = "./UserDB";
+            for (Usuarios usuario : usuarios) {
+                String correo = usuario.getEmail();
+                String password = usuario.getPassword();
+                String funcion = usuario.getFuncion();
+                datosString = correo + ";" + password + ";" + funcion;
 
                 pw.println(datosString);
             }

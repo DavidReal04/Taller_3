@@ -1,29 +1,29 @@
 package co.edu.unbosque.taller_3;
 
 public class Usuarios {
-    private String nombre;
-    private String correo;
+    private String email;
+    private String password;
     private String funcion;
 
-    public Usuarios(String nombre,String correo,String funcion) {
-        this.nombre=nombre;
-        this.correo=correo;
-        this.funcion=funcion;
+    public Usuarios(String email, String password, String funcion) {
+        this.email = email;
+        this.password = password;
+        this.funcion = funcion;
     }
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getEmail() {
+        return email;
     }
 
-    public String getCorreo() {
-        return correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFuncion() {
