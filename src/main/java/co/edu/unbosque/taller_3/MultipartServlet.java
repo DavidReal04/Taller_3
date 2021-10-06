@@ -56,6 +56,8 @@ public class MultipartServlet extends HttpServlet {
         database.setArchivodata(uploadPath2);
         database.escribirArchivo_meta();
 
+        response.sendRedirect(request.getContextPath() + "/propietario.html");
+
 
     }
 
