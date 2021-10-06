@@ -8,7 +8,6 @@
         <title>Ciudadanos de 4 patas</title>
     </head>
     <body>
-
         <div class="container">
             <div class="d-grid justify-content-center align-items-center" style="height: 100vh;">
                 <div class="p-4 bg-light border border-3">
@@ -29,10 +28,17 @@
                                 <input type="submit" value="Log in"></input>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
+        <script>
+            var cookies = document.cookie.split(";");
+            if(cookies[1].includes("propietario")){
+                window.location.href = location.href + "propietario.html";
+            }else if(cookies[1].includes("funcionario")){
+                window.location.href = location.href + "funcionario.html";
+            }
+        </script>
     </body>
 </html>
