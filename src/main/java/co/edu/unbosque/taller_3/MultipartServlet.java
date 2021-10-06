@@ -33,10 +33,8 @@ public class MultipartServlet extends HttpServlet {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String pet= "";
-        String correo="";
-        String fecha="";
 
+        response.sendRedirect(request.getContextPath() + "/result.html");
     }
 
     public void destroy() {
