@@ -40,12 +40,12 @@ public class ManageFiles {
         return true;
     }
 
-    public String escribirArchivo() {
+    public String escribirArchivo( ) {
         File f = new File(this.archivodata);
         try {
             FileWriter fw = new FileWriter(f);
             PrintWriter pw = new PrintWriter(fw);
-            String datosString = "./UserDB";
+            String datosString = "";
             for (Usuarios usuario : usuarios) {
                 String correo = usuario.getEmail();
                 String password = usuario.getPassword();
