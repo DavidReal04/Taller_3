@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+
+}
+
+body {
+    margin-top: 200px;
+    background-image: url('./Img/fondo.jpg');
+    font-size: 16px;
+    line-height: 1.375em;
+    letter-spacing: 0.203em;
+    font-style: italic;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 34.375em;
+    margin: 1.25em auto;
+    display: flex;
+}
+@media (max-width:576px){
+    body{
+        font-size: 10px;
+    }
+    .contenedor{
+        margin-top: 150px;
+        margin-right:100px
+
+    }
+
+    *{
+        margin:10px;
+        max-height: max-content;
+    }
+
+}
+
+.flotante {
+
+    width: 34.375em;
+    height: auto;
+    background: #ffffff;
+    padding: 1.875em;
+    margin: auto;
+    margin-top: 1.875em;
+    margin-bottom: 0.625em;
+    border-radius: 1.875em;
+    font-family: 'calibri';
+    color: rgb(0, 0, 0);
+    box-shadow: 0.4375em 0.8125em 2.3125em #000;
+}
+
+.botons{
+    width: 100%;
+    background: rgba(31, 197, 64, 0.7);
+    border-radius: 0.625em;
+    padding: 0.75em;
+    color: #000000;
+    margin: auto;
+    margin-bottom: 1.25em;
+
+}
+
+img{
+    margin-left: 3.125em;
+    height: auto;
+    width: 25em;
+}
+
+.scanner-laser {
+    position: absolute;
+    margin: 40px;
+    height: 30px;
+    width: 30px;
+    opacity: 1;
+}
+

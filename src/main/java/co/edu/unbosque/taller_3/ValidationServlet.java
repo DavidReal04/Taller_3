@@ -24,7 +24,7 @@ public class ValidationServlet extends HttpServlet {
         //Get DataBase Path & set path on ManageFiles
         String uploadPath = getServletContext().getRealPath("/DBfiles/UserDB");
         database.setArchivodata(uploadPath);
-        database.uploadData();
+        database.uploadData_users();
         ArrayList<Usuarios> users = database.getUsuarios();
 
         //Validate Login with DataBase info

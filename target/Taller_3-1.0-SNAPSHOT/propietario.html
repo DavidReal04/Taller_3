@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:h="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
         <title>Ciudadanos de 4 Patas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"integrity ="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" >
     </head>
     <body>
-        <h2>Propietario</h2>
+        <div class="contenedor">
+            <div class="flotante">
+                <div class="row">
+                    <div>
+                        <h2>Propietario</h2>
+                        <br/>
+                        <img id="imagen1" src="" class="rounded col-sm-4" alt="Cinque Terre" width="304" height="236">
+                        <label id="nombre" class="col-sm-8"></label>
+                    </div>
+                    <br/><br/>
+                    <form enctype="multipart/form-data" action="multiPartServlet" method="post">
+                        <label  class="col-sm-6"> Nombre de la mascota:</label>
+                        <input name ="petname" type="text" class="form-control  col-sm-2" placeholder="Nombre del propietario" name="name"required/>
+                        <div class="valid-feedback">Validado.</div>
+                        <div class="invalid-feedback">Por favor llene este campo.</div>
+                        <div>
+                            <br/>
+                            <input type="file"  name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+                        </div>
+                        <input id="save-button" type="submit" class="botons" value="Save"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <script>
+        document.getElementById("save-button").onclick=function (){
+            let nombre =document.getElementById("nombre")
+            nombre.textContent=document.getElementsByName("petname").value;
+            document.getElementById("imagen1").setAttribute("src","./uploads/"+document.getElementsByName("imagensubida").value)
+        }
+    </script>
     </body>
 </html>
