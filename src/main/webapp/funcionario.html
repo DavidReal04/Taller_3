@@ -44,20 +44,36 @@
             <br/><br/>
         </div>
     <script>
-        
-        let tr = document.createElement("tr");
-        let tdimg = document.createElement("td");
-        let img = document.createElement("img");
-        img.setAttribute("class","rounded")
-        img.setAttribute("alt","Cinque Terre")
-        img.setAttribute("width","200" )
-        img.setAttribute("height","156")
-        img.setAttribute("src","");
-        tdimg.appendChild(img);
-        tr.appendChild(tdimg);
-        let pet = {
+        fetch("jsonServlet")
+            .then(response => response.json())
+            .then(data => {
+                // Using the DOM API to update an HTML img element
+                console.log(data);
+                data.forEach((key) => {
+                    let tr = document.createElement("tr");
+                    let tdimg = document.createElement("td");
+                    let img = document.createElement("img");
+                    img.setAttribute("class","rounded")
+                    img.setAttribute("alt","Cinque Terre")
+                    img.setAttribute("width","200" )
+                    img.setAttribute("height","156")
+                    img.setAttribute("src","./uploads/"+key.img);
+                    tdimg.appendChild(img);
+                    tr.appendChild(tdimg);
+                    let pet = {
+                        date: key.fecha,
+                        name : key.pet,
+                        email : key.correo
+                    }
+                    Object.keys(pet).forEach((key) => {
+                        let td = document.createElement("td");
+                        td.innerHTML= pet[key];
+                        tr.appendChild(td);
+                    });
+                    document.getElementById("body-table").appendChild(tr);
+                });
+            });
 
-        }
     </script>
     </body>
 </html>

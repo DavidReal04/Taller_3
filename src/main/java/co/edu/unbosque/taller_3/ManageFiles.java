@@ -47,7 +47,6 @@ public class ManageFiles {
             CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
             csvReader = new CSVReaderBuilder(csvFile).withCSVParser(conPuntoYComa).build();
             String[] fila;
-            csvReader.readNext();
             while ((fila = csvReader.readNext()) != null) {
                 meta.add(new MetaData(fila[0],fila[1],fila[2],fila[3]));
             }
