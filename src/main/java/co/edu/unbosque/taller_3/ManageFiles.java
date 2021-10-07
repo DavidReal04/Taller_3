@@ -41,7 +41,7 @@ public class ManageFiles {
         }
         return true;
     }
-    public boolean uploadData_meta() {
+    public ArrayList uploadData_meta() {
         try {
             csvFile = new FileReader(archivodata);
             CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
@@ -52,9 +52,9 @@ public class ManageFiles {
                 meta.add(new MetaData(fila[0],fila[1],fila[2],fila[3]));
             }
         }catch (IOException | CsvValidationException e) {
-            return false;
+            return null;
         }
-        return true;
+        return meta;
     }
 
     public String escribirArchivo_meta() {
