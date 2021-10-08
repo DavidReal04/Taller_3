@@ -6,6 +6,7 @@ public class MetaData {
     private String fecha;
     private String img;
 
+    //Metadata DAO
     public MetaData(String pet, String correo, String fecha, String img) {
         this.pet = pet;
         this.correo = correo;

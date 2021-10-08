@@ -5,6 +5,7 @@ public class Usuarios {
     private String password;
     private String funcion;
 
+    //Users DAO
     public Usuarios(String email, String password, String funcion) {
         this.email = email;
         this.password = password;

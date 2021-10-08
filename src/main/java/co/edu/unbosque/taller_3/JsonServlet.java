@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 @WebServlet(name = "jsonServlet", value = "/jsonServlet")
 public class JsonServlet extends HttpServlet {
@@ -17,18 +16,14 @@ public class JsonServlet extends HttpServlet {
         // Specifying the content type for the response
         response.setContentType("application/json");
 
-        // Dynamically building the data to be returned in json format
+        // Getting the info from the Database
         ManageFiles file = new ManageFiles();
         String uploadPath = getServletContext().getRealPath("/DBfiles/MetaBD");
         file.setArchivodata(uploadPath);
-        file.uploadData_meta();
-        ArrayList meta = file.getMeta();
-
-        log(meta.toString());
 
         // Adding the data to response, parsing it to json using Gson library
         PrintWriter out = response.getWriter();
-        out.println(new Gson().toJson(file.getMeta()));
+        out.println(new Gson().toJson(file.uploadData_meta()));
 
     }
 

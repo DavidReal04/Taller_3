@@ -50,10 +50,15 @@ public class ValidationServlet extends HttpServlet {
                     response.addCookie(rolCookie);
                     response.sendRedirect(request.getContextPath() + "/funcionario.html");
                 }
+            } else {
+                //Sends alert if username or password are wrong
+                PrintWriter out = response.getWriter();
+                out.println("<script>");
+                out.println("alert('Usuario o contraseña incorrectos');");
+                out.println("window.location.href = history.back()");
+                out.println("</script>");
             }
         }
     }
 
-    public void destroy() {
-    }
 }

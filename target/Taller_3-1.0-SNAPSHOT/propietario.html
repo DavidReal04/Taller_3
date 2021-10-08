@@ -10,9 +10,15 @@
         <div class="contenedor">
             <div class="flotante">
                 <div class="row">
-                    <div>
-                        <h2>Propietario</h2>
-                        <br/>
+                    <div class="row row-cols-2">
+                        <div class="col">
+                            <h2>Propietario</h2>
+                            <br/>
+                        </div>
+                        <div class="col" style="text-align-last: end">
+                            <button class="btn btn-secondary" id="logout-button">Logout</button>
+                            <br/>
+                        </div>
                     </div>
                     <br/><br/>
                     <form enctype="multipart/form-data" action="multiPartServlet" method="post">
@@ -41,11 +47,20 @@
             <br/><br/>
         </div>
         <script>
+            if(document.cookie.length==0){
+                window.location.href = location.href.replace("propietario.html","");
+            }
             document.getElementById("save-button").onclick=function (){
                 if((document.getElementById("petname").value!=='') && (document.getElementById("imagen").value!=='')) {
                     window.alert("Guardado Exitosamente");
                 }
             }
+            document.getElementById("logout-button").onclick = function (){
+                document.cookie = "Rol = ; expires = "+Date();
+                document.cookie = "Email = ; expires = "+Date();
+                window.location.href = location.href.replace("propietario.html","");
+            }
+
         </script>
     </body>
 </html>

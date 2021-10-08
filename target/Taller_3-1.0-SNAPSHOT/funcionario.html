@@ -11,8 +11,13 @@
                 <h1>Ciudadano de 4 Patas</h1>
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <img  src="./Img/pata.png" style="margin-left:20px" width="75" height="75">
-            <a class="navbar-brand" style="margin-left:20px">Bienvenid@</a>
+            <div class="col" style="padding-left: 100px">
+                <img  src="./Img/pata.png" style="margin-left:20px" width="75" height="75">
+                <a class="navbar-brand" style="margin-left:20px">Bienvenid@</a>
+            </div>
+            <div class="col" style="text-align: right; padding-right: 250px">
+                <button class="btn btn-secondary" id="logout-button">Logout</button>
+            </div>
         </nav>
         <div class="row">
             <div class=" tabla col-sm-7" style="margin-top:30px">
@@ -44,11 +49,13 @@
             <br/><br/>
         </div>
     <script>
+        if(document.cookie.length==0){
+            window.location.href = location.href.replace("funcionario.html","");
+        }
         fetch("jsonServlet")
             .then(response => response.json())
             .then(data => {
                 // Using the DOM API to update an HTML img element
-                console.log(data);
                 data.forEach((key) => {
                     let tr = document.createElement("tr");
                     let tdimg = document.createElement("td");
@@ -73,7 +80,11 @@
                     document.getElementById("body-table").appendChild(tr);
                 });
             });
-
+        document.getElementById("logout-button").onclick = function (){
+            document.cookie = "Rol = ; expires = "+Date();
+            document.cookie = "Email = ; expires = "+Date();
+            window.location.href = location.href.replace("funcionario.html","");
+        }
     </script>
     </body>
 </html>

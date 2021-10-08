@@ -79,27 +79,6 @@ public class ManageFiles {
         return "Registro exitoso";
     }
 
-    public String escribirArchivo_users() {
-        File f = new File(this.archivodata);
-        try {
-            FileWriter fw = new FileWriter(f);
-            PrintWriter pw = new PrintWriter(fw);
-            String datosString = "./UserDB";
-            for (Usuarios usuario : usuarios) {
-                String correo = usuario.getEmail();
-                String password = usuario.getPassword();
-                String funcion = usuario.getFuncion();
-                datosString = correo + ";" + password + ";" + funcion;
-
-                pw.println(datosString);
-            }
-            fw.close();
-        } catch (IOException e) {
-            return "Registro no exitoso";
-        }
-        return "Registro exitoso";
-    }
-
     public ArrayList<Usuarios> getUsuarios() {
         return usuarios;
     }
