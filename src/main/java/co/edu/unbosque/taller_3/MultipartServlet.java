@@ -16,18 +16,23 @@ public class MultipartServlet extends HttpServlet {
     private String UPLOAD_DIRECTORY = "uploads";
     private int i;
 
+    //object initialization
     public void init() {
         database = new ManageFiles();
         i =0;
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Specifying the content type for the response
         response.setContentType("text/html");
 
+        // Getting the file from the propietarios.html and separating it into parts
         String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
         File uploadDir = new File(uploadPath);
+        //validating or creating folder
         if (!uploadDir.exists()) uploadDir.mkdir();
 
+        //adding file to the folder
         String fileName = "";
         try {
             for (Part part : request.getParts()) {
@@ -40,8 +45,10 @@ public class MultipartServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
+        // Getting the info from the propietarios.html
         String pet= request.getParameter("petname");
+
+        // Getting cookie from the browser
         Cookie[] cookies = request.getCookies();
         String correo ="";
         if(cookies!=null) {
@@ -53,9 +60,11 @@ public class MultipartServlet extends HttpServlet {
             }
         }
 
+        // Getting date from the browser
         String fecha= new Date()+"";
         i++;
         String archivo = fileName;
+        //adding info to the meta database
         database.getMeta().add(new MetaData(pet,correo,fecha,archivo));
         String uploadPath2 = getServletContext().getRealPath("/DBfiles/MetaBD");
         database.setArchivodata(uploadPath2);

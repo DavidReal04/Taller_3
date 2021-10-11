@@ -15,6 +15,7 @@ public class ValidationServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Specifying the content type for the response
         response.setContentType("text/html");
 
         //Login submitted by the user

@@ -20,19 +20,23 @@ public class ManageFiles {
     private FileReader csvFile;
     private String archivodata;
 
+    //object initialization
     public ManageFiles() {
         usuarios = new ArrayList<>();
         meta = new ArrayList<>();
         archivodata = "";
     }
 
+    //reading csv file
     public boolean uploadData_users() {
         try {
+            //open csv file and declare separator
             csvFile = new FileReader(archivodata);
             CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
             csvReader = new CSVReaderBuilder(csvFile).withCSVParser(conPuntoYComa).build();
             String[] fila;
             csvReader.readNext();
+            //adding objects of the csv to usuarios arraylist
             while ((fila = csvReader.readNext()) != null) {
                 usuarios.add(new Usuarios(fila[0],fila[1],fila[2]));
             }
@@ -41,12 +45,16 @@ public class ManageFiles {
         }
         return true;
     }
+
+    //reading csv file
     public ArrayList uploadData_meta() {
         try {
+            //open csv file and declare separator
             csvFile = new FileReader(archivodata);
             CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
             csvReader = new CSVReaderBuilder(csvFile).withCSVParser(conPuntoYComa).build();
             String[] fila;
+            //adding objects of the csv to usuarios arraylist
             while ((fila = csvReader.readNext()) != null) {
                 meta.add(new MetaData(fila[0],fila[1],fila[2],fila[3]));
             }
@@ -56,9 +64,12 @@ public class ManageFiles {
         return meta;
     }
 
+    //overwriting csv file
     public String escribirArchivo_meta() {
+        //open csv file
         File f = new File(this.archivodata);
         try {
+            //overwriting
             FileWriter fw = new FileWriter(f);
             PrintWriter pw = new PrintWriter(fw);
             String datosString = "";
