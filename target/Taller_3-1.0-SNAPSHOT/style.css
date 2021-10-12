@@ -19,12 +19,20 @@ body {
     letter-spacing: 0.203em;
     font-style: italic;
 }
+.index {
+    margin-top: 30px;
+    background-image: url('./Img/index.jpg') ;
+    font-size: 16px;
+    line-height: 1.375em;
+    letter-spacing: 0.203em;
+    font-style: italic;
+}
 
-.container{
+.contenedor{
     background: #98be2e;
 
 }
-.container h1{
+.contenedor h1{
     font-style: oblique;
     font-size: 50px;
    color: #000000;
@@ -33,7 +41,7 @@ body {
     body{
         font-size: 10px;
     }
-    .container{
+    .contenedor{
         margin-top: 150px;
         margin-right:100px
 
@@ -60,6 +68,17 @@ body {
     color: rgb(0, 0, 0);
     box-shadow: 0.4375em 0.8125em 2.3125em #000;
 }
+.flotante2 {
+
+
+    background: rgb(255, 255, 255);
+    padding: 1.875em;
+    border-radius: 1.875em;
+    margin-top: 70px;
+    font-family: 'calibri';
+    color: rgb(0, 0, 0);
+    box-shadow: 0.4375em 0.8125em 2.3125em #1aa1d2;
+}
 
 .botons{
     width: 100%;
@@ -69,6 +88,16 @@ body {
     color: #000000;
     margin: auto;
     margin-bottom: 1.25em;
+}
+.botons1{
+    height: 20px;
+    background: rgba(31, 197, 64, 0.25);
+    border-radius: 0.625em;
+    padding: 0.75em;
+    color: #000000;
+    margin: auto;
+    border-color: #15cb15;
+    line-height: 0px;
 }
 .tabla{
     margin-left: 50px;

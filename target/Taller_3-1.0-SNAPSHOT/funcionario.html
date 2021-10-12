@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css" >
     </head>
     <body class="Body">
-        <div class="container text-center jumbotron" >
+        <div class="contenedor text-center jumbotron" >
                 <h1>Ciudadano de 4 Patas</h1>
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -49,9 +49,11 @@
             <br/><br/>
         </div>
     <script>
-        if(document.cookie.length==0){
+        //Checks if the login is done
+        if(document.cookie.length===0){
             window.location.href = location.href.replace("funcionario.html","");
         }
+        //Fetch jsonServlet
         fetch("jsonServlet")
             .then(response => response.json())
             .then(data => {
@@ -80,6 +82,7 @@
                     document.getElementById("body-table").appendChild(tr);
                 });
             });
+        //Logout button to erase cookies
         document.getElementById("logout-button").onclick = function (){
             document.cookie = "Rol = ; expires = "+Date();
             document.cookie = "Email = ; expires = "+Date();
