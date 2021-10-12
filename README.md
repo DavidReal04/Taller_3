@@ -7,7 +7,7 @@ La aplicación permite acceder a agregar y consultar la infromación de la campa
 <br/>
 Usuarios y Contraseñas:
 <br/>
-dreal@unbosque.edu.co --> 12345
+Propietario: dreal@unbosque.edu.co --> 12345
 <br/>
-fsegurar@unbosque.edu.co --> 54321
+Funcionario: fsegurar@unbosque.edu.co --> 54321
 <br/>
