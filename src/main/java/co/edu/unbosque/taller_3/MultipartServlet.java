@@ -38,7 +38,7 @@ public class MultipartServlet extends HttpServlet {
             for (Part part : request.getParts()) {
                 String firstname =part.getSubmittedFileName();
 
-                fileName = fileName.hashCode()+"."+FilenameUtils.getExtension(firstname);
+                fileName = (Math.random()*(1000000))+"."+FilenameUtils.getExtension(firstname);
                 part.write(uploadPath + File.separator + fileName);
             }
         } catch (FileNotFoundException e) {
